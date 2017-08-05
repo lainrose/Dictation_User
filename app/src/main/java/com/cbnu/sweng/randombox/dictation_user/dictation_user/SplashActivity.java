@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.SignInActivity;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.SignUpActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
