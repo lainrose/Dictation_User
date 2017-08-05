@@ -4,14 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cbnu.sweng.randombox.dictation_user.dictation_user.SplashActivity">
-
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/splash"
-        android:scaleType="fitXY"/>
+    tools:context="com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.SignInActivity">
 
 </android.support.constraint.ConstraintLayout>
