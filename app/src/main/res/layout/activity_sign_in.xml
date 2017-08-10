@@ -18,7 +18,7 @@
         android:theme="?attr/actionBarTheme" />
 
     <EditText
-        android:id="@+id/et_id"
+        android:id="@+id/etStudentNameIn"
         android:textColor="#333333"
         android:textColorHint="#aaaaaa"
         android:background="#ffffffff"
@@ -29,8 +29,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="20.0dip"
         android:layout_marginBottom="2.0dip"
-        android:hint="이메일 주소"
-        android:inputType="textEmailAddress"
+        android:hint="이름"
         android:imeOptions="actionNext"
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true">
@@ -38,7 +37,23 @@
     </EditText>
 
     <EditText
-        android:id="@+id/et_pw"
+        android:id="@+id/etSchoolNameIn"
+        android:textColor="#333333"
+        android:textColorHint="#aaaaaa"
+        android:background="#ffffff"
+        android:paddingLeft="20.0dip"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_marginBottom="2.0dip"
+        android:hint="학교"
+        android:layout_below="@id/etStudentNameIn"
+        android:layout_centerHorizontal="true"
+        android:imeOptions="actionDone" />
+
+    <EditText
+        android:id="@+id/etStudentInfoIn"
         android:textColor="#333333"
         android:textColorHint="#aaaaaa"
         android:background="#ffffff"
@@ -48,11 +63,9 @@
         android:layout_marginLeft="20.0dip"
         android:layout_marginRight="20.0dip"
         android:layout_marginBottom="10.0dip"
-        android:hint="비밀번호"
-        android:password="true"
-        android:layout_below="@id/et_id"
+        android:hint="학년 / 반 / 이름"
+        android:layout_below="@id/etSchoolNameIn"
         android:layout_centerHorizontal="true"
-        android:inputType="textVisiblePassword"
         android:imeOptions="actionDone" />
 
     <LinearLayout
@@ -61,10 +74,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="20.0dip"
-        android:layout_below="@id/et_pw">
+        android:layout_below="@id/etStudentInfoIn">
 
         <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/cb_auto_login"
+            android:id="@+id/cbAutoLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -76,9 +89,10 @@
             android:textSize="@dimen/text_size"/>
     </LinearLayout>
 
-    <Button android:textSize="@dimen/text_size"
+    <Button
+        android:id="@+id/btSignIn"
+        android:textSize="@dimen/text_size"
         android:textColor="#FFFFFF"
-        android:id="@+id/bt_sing_in_login"
         android:background="@drawable/border_sign"
         android:layout_width="fill_parent"
         android:layout_height="40.0dip"
@@ -88,8 +102,7 @@
         android:layout_marginBottom="10.0dip"
         android:text="로그인하기"
         android:layout_below="@id/layout"
-        android:layout_centerHorizontal="true"
-        android:onClick="Onclick_Sign_in" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 
