@@ -16,7 +16,7 @@ import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
+//17-08-14
 public class SignUpActivity extends AppCompatActivity {
 
     @BindView(R.id.etSchoolNameUp) EditText etSchoolNameUp;
