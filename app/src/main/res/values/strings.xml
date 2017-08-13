@@ -1,3 +1,52 @@
 <resources>
     <string name="app_name">Dictation_User</string>
+
+    <string-array name="strArrayGrade">
+        <item>1학년</item>
+        <item>2학년</item>
+        <item>3학년</item>
+        <item>4학년</item>
+        <item>5학년</item>
+        <item>6학년</item>
+    </string-array>
+
+    <string-array name="strArrayClass">
+        <item>1반</item>
+        <item>2반</item>
+        <item>3반</item>
+        <item>4반</item>
+        <item>5반</item>
+        <item>6반</item>
+        <item>7반</item>
+        <item>8반</item>
+        <item>9반</item>
+        <item>10반</item>
+        <item>11반</item>
+        <item>12반</item>
+    </string-array>
+
+    <string-array name="strArrayAttendenceNum">
+        <item>1번</item>
+        <item>2번</item>
+        <item>3번</item>
+        <item>4번</item>
+        <item>5번</item>
+        <item>6번</item>
+        <item>7번</item>
+        <item>8번</item>
+        <item>9번</item>
+        <item>10번</item>
+        <item>11번</item>
+        <item>12번</item>
+        <item>13번</item>
+        <item>14번</item>
+        <item>15번</item>
+        <item>16번</item>
+        <item>17번</item>
+        <item>18번</item>
+        <item>19번</item>
+        <item>20번</item>
+        <item>21번</item>
+        <item>22번</item>
+    </string-array>
 </resources>
