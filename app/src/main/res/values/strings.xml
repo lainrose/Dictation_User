@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Dictation_User</string>
+    <string name="modify_info">개인정보수정</string>
+    <string name="check_past">지난성적보기</string>
+    <string name="log_out">로그아웃</string>
+    <string name="exit">나가기</string>
+    <string name="app_about_message">안드로이드팝업메시지</string>
+    <string name="str_ok">YES</string>
+    <string name="app_exit_message">나가기</string>
+    <string name="str_no">NO</string>
+
 </resources>

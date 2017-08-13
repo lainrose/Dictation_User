@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.SignInActivity">
+    tools:context="com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.BasicActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="-14dp"
-        tools:layout_editor_absoluteY="-13dp" />
 </android.support.constraint.ConstraintLayout>
