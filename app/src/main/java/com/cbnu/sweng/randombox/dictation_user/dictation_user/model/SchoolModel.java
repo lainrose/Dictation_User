@@ -5,6 +5,7 @@ package com.cbnu.sweng.randombox.dictation_user.dictation_user.model;
  */
 
 public class SchoolModel {
+
     public volatile static SchoolModel schoolModel;
     private String name;
     private String regionn1;

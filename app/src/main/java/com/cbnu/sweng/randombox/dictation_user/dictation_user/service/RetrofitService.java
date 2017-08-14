@@ -5,6 +5,7 @@ import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.StudentModel
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -17,10 +18,10 @@ public interface RetrofitService {
 
     //로그인
     @POST("auth/login")
-    Call<List<StudentModel>> login(@Query("name") String name,
-                                   @Query("school") String school,
-                                   @Query("id") int id,
-                                   @Query("type") String type);
+    Call<List<StudentModel>> login(@Field("name") String name,
+                                   @Field("school") String school,
+                                   @Field("student_id") int student_id,
+                                   @Field("type") String type);
 
     //학생 수정
     @GET("students/:id")
@@ -36,10 +37,10 @@ public interface RetrofitService {
 
     //학생 추가
     @POST("students")
-    Call<List<StudentModel>> addStudent(@Query("name") String name,
-                                        @Query("school") String school,
-                                        @Query("id") int id,
-                                        @Query("type") String type);
+    Call<List<StudentModel>> addStudent(@Field("name") String name,
+                                        @Field("school") String school,
+                                        @Field("student_id") int student_id,
+                                        @Field("type") String type);
 
     //문제 전체 정보
     @GET("quizzes")
