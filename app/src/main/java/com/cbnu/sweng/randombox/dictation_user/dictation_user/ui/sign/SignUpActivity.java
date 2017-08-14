@@ -13,31 +13,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
 import com.shawnlin.numberpicker.NumberPicker;
 
-import java.lang.reflect.Array;
 
 import butterknife.BindArray;
-import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    Spinner spState;
+    Spinner spCity;
     @BindArray(R.array.strArrayCity)
     String [] strArrayCity;
     @BindView(R.id.etSchoolNameUp) EditText etSchoolNameUp;
     @BindView(R.id.etStudentInfoUp) EditText etStudentInfoUp;
     @BindView(R.id.btSignUp) Button btSignUp;
-    public Spinner spState;
     @OnClick(R.id.etSchoolNameUp)
     void onClickEtSchoolNameUp(){
         View mView = getLayoutInflater().inflate(R.layout.dialog_select_school_name, null);
-        final Spinner spCity = ButterKnife.findById(mView, R.id.spCity);
+        spCity = ButterKnife.findById(mView, R.id.spCity);
         spState = ButterKnife.findById(mView, R.id.spState);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyDialogTheme);
@@ -45,7 +43,8 @@ public class SignUpActivity extends AppCompatActivity {
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which){
-
+                String strCity = spCity.getSelectedItem().toString();
+                String strState = spState.getSelectedItem().toString();
             }
         });
         builder.setNegativeButton("취소",
@@ -65,64 +64,56 @@ public class SignUpActivity extends AppCompatActivity {
         spCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.d("tag", spCity.getSelectedItem().toString());
-                Log.d("tag", strArrayCity[0]);
                 ((TextView)adapterView.getChildAt(0)).setTextColor(Color.BLACK);
                 if(spCity.getSelectedItem().toString().equals("시/도")){
                     spState.setClickable(false);
                     spState.setSelection(0);
                 }
-                else{
-                    if(spCity.getSelectedItem().toString().equals(strArrayCity[1])){
+                else if(spCity.getSelectedItem().toString().equals(strArrayCity[1])){
                         setStateApdapter(R.array.strArraySeoulState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[2])) {
-                        setStateApdapter(R.array.strArrayBusanState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[3])) {
-                        setStateApdapter(R.array.strArrayDagueState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[4])) {
-                        setStateApdapter(R.array.strArrayIncheonState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[5])) {
-                        setStateApdapter(R.array.strArrayGwangJuState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[6])) {
-                        setStateApdapter(R.array.strArrayDaJeonState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[7])) {
-                        setStateApdapter(R.array.strArrayUlsanState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[8])) {
-                        setStateApdapter(R.array.strArraySeJongState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[9])) {
-                        setStateApdapter(R.array.strArrayGyeonGgiDo);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[10])) {
-                        setStateApdapter(R.array.strArrayGangWonDoState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[11])) {
-                        setStateApdapter(R.array.strArrayChungCheongBukDoState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[12])) {
-                        setStateApdapter(R.array.strArrayChungCheongNamDoState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[13])) {
-                        setStateApdapter(R.array.strArrayJeolLaBukDoState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[14])) {
-                        setStateApdapter(R.array.strArrayJeolLaNamDoState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[15])) {
-                        setStateApdapter(R.array.strArrayGyeongSangBukDoState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[16])) {
-                        setStateApdapter(R.array.strArrayGyeongSangNamDoState);
-                    } else if (spCity.getSelectedItem().toString().equals(strArrayCity[17])) {
-                        setStateApdapter(R.array.strArrayJeJuState);
-                    }
-                    spState.setClickable(true);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[2])) {
+                    setStateApdapter(R.array.strArrayBusanState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[3])) {
+                    setStateApdapter(R.array.strArrayDagueState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[4])) {
+                    setStateApdapter(R.array.strArrayIncheonState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[5])) {
+                    setStateApdapter(R.array.strArrayGwangJuState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[6])) {
+                    setStateApdapter(R.array.strArrayDaJeonState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[7])) {
+                    setStateApdapter(R.array.strArrayUlsanState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[8])) {
+                    setStateApdapter(R.array.strArraySeJongState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[9])) {
+                    setStateApdapter(R.array.strArrayGyeonGgiDo);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[10])) {
+                    setStateApdapter(R.array.strArrayGangWonDoState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[11])) {
+                    setStateApdapter(R.array.strArrayChungCheongBukDoState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[12])) {
+                    setStateApdapter(R.array.strArrayChungCheongNamDoState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[13])) {
+                    setStateApdapter(R.array.strArrayJeolLaBukDoState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[14])) {
+                    setStateApdapter(R.array.strArrayJeolLaNamDoState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[15])) {
+                    setStateApdapter(R.array.strArrayGyeongSangBukDoState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[16])) {
+                    setStateApdapter(R.array.strArrayGyeongSangNamDoState);
+                } else if (spCity.getSelectedItem().toString().equals(strArrayCity[17])) {
+                    setStateApdapter(R.array.strArrayJeJuState);
                 }
+                spState.setClickable(true);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                //
+                // onNothingSelected logic
             }
         });
 
-        ArrayAdapter<String> StateAdapter = new ArrayAdapter<String>(SignUpActivity.this,
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.strArraySeoulState));
-        StateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spState.setAdapter(StateAdapter);
+        setStateApdapter(R.array.strArraySeoulState);
         spState.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -131,7 +122,7 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                //
+                // onNothingSelected logic
             }
         });
 
@@ -163,7 +154,7 @@ public class SignUpActivity extends AppCompatActivity {
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //
+                // negative button logic
             }
         });
         builder.setView(mView);
@@ -171,7 +162,6 @@ public class SignUpActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
     @OnClick(R.id.btSignUp)
     void onClickBtSignUp(){
         Log.d("TAG", "CLICK");

@@ -24,4 +24,7 @@
         <activity android:name=".ui.sign.SignUpActivity"></activity>
     </application>
 
+    <!--PERMMISSION-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 </manifest>
