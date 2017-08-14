@@ -64,7 +64,7 @@
         android:layout_marginLeft="20.0dip"
         android:layout_marginRight="20.0dip"
         android:layout_marginBottom="10.0dip"
-        android:hint="학년 / 반 / 이름"
+        android:hint="학년 / 반 / 출석번호"
         android:layout_below="@id/etSchoolNameUp"
         android:layout_centerHorizontal="true"
         android:imeOptions="actionDone"

@@ -12,7 +12,7 @@
         <!--buttons color-->
         <item name="colorAccent">@color/colorPrimary</item>
         <!--title and message color-->
-        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
         <!--dialog background-->
         <item name="android:windowBackground">@drawable/dialog</item>
     </style>
