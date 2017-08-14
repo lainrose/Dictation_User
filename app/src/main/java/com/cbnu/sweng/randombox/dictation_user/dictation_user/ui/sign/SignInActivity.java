@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
 
+import butterknife.ButterKnife;
+
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_intent;
 
@@ -18,6 +20,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         btn_intent = (Button)findViewById(R.id.button);
         btn_intent.setOnClickListener(this);
+//        ButterKnife.bind(this);
 
     }
     @Override

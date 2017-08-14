@@ -1,6 +1,5 @@
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -11,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.past.CheckPast;
 
 public class BasicActivity extends AppCompatActivity {
 
@@ -33,7 +33,7 @@ public class BasicActivity extends AppCompatActivity {
 
         else if (id == R.id.check_past) // 지난성적 보기
         {
-            Intent intent = new Intent(this, Check_Past.class);
+            Intent intent = new Intent(this, CheckPast.class);
             startActivity(intent);
         }
 
