@@ -6,4 +6,57 @@
     android:layout_height="match_parent"
     tools:context="com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.BasicActivity">
 
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:stretchColumns="*">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:background="#666666"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="시험날짜" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:background="#666666"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="점수" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:background="#666666"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="등수" />
+        </TableRow>
+
+
+    </TableLayout>
+
+
+
 </android.support.constraint.ConstraintLayout>

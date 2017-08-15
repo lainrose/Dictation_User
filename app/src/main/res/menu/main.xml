@@ -11,17 +11,12 @@
         android:id="@+id/check_past"
         android:orderInCategory="100"
         android:title="@string/check_past" />
-    <item
-        android:id="@+id/log_out"
-        android:orderInCategory="100"
-        android:title="@string/log_out" />
+
 
     <item
         android:id="@+id/exit"
         android:orderInCategory="100"
         android:title="@string/exit" />
 
-
-    출처: http://mainia.tistory.com/878 [녹두장군 - 상상을 현실로]
 
 </menu>

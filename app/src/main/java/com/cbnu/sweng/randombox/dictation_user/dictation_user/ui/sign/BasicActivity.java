@@ -2,11 +2,19 @@ package com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
@@ -37,10 +45,6 @@ public class BasicActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        else if (id == R.id.log_out) // 로그아웃
-        {
-            Toast.makeText(getApplicationContext(), "로그아웃 완료", Toast.LENGTH_LONG).show();
-        }
 
         else if (id == R.id.exit) // 종료
         {
@@ -50,17 +54,6 @@ public class BasicActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    private void openOptionsDialog() {
-//        new AlertDialog.Builder(this)
-//                .setTitle(R.string.modify_info)
-//                .setMessage(R.string.app_about_message)
-//                .setPositiveButton(R.string.str_ok,
-//                        new DialogInterface.OnClickListener() {
-//                            public void onClick(
-//                                    DialogInterface dialoginterface, int i) {
-//                            }
-//                        }).show();
-//    }
 
     private void exitOptionsDialog() {
         new AlertDialog.Builder(this)
@@ -91,5 +84,27 @@ public class BasicActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic);
 
+        final TableLayout tableLayout = (TableLayout) findViewById(R.id.table); // 테이블 id 명
+
+        for (int i = 0; i < 9; i++) {
+// Creation row
+            final TableRow tableRow = new TableRow(this);
+            tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+
+
+            for(int j = 0 ; j < 3 ; j++){
+                final TextView text = new TextView(this);
+
+                text.setText( "갸갸갹" );
+                text.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+                tableRow.addView(text);
+            }
+
+            tableLayout.addView(tableRow);
+        }
+
+
     }
+
 }

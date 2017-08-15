@@ -10,9 +10,11 @@ public class PastInfoModel {
     private String score;
     private String rank;
 
-    public void setDate(String date)
+    public void setInfo(String date, String score, String rank)
     {
         this.date = date;
+        this.score = score;
+        this.rank = rank;
     }
 
     public String getDate()
@@ -20,19 +22,9 @@ public class PastInfoModel {
         return date;
     }
 
-    public void setScore(String score)
-    {
-        this.score = score;
-    }
-
     public String getScore()
     {
         return score;
-    }
-
-    public void setRank(String rank)
-    {
-        this.rank = rank;
     }
 
     public String getRank()
