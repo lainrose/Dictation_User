@@ -117,80 +117,80 @@ public class ExamResultPage extends AppCompatActivity {
         }
 
         for (QuestionResult questionResult : quizResult.questionResults) {
-            if(quizResult.questionNumber == 1){
-                if(quizResult.correct){
+            if(questionResult.questionNumber == 1){
+                if(questionResult.correct){
                     ivGradeOne.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
                     ivGradeOne.setImageResource(R.drawable.ic_check_no);
                 }
             }
-            else if(quizResult.questionNumber == 2){
-                if(quizResult.correct){
+            else if(questionResult.questionNumber == 2){
+                if(questionResult.correct){
                     ivGradeTwo.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
                     ivGradeTwo.setImageResource(R.drawable.ic_check_no);
                 }
             }
-            else if(quizResult.questionNumber == 3){
-                if(quizResult.correct){
+            else if(questionResult.questionNumber == 3){
+                if(questionResult.correct){
                     ivGradeThree.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
                     ivGradeThree.setImageResource(R.drawable.ic_check_no);
                 }
             }
-            else if(quizResult.questionNumber == 4){
-                if(quizResult.correct){
+            else if(questionResult.questionNumber == 4){
+                if(questionResult.correct){
                     ivGradeFour.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
                     ivGradeFour.setImageResource(R.drawable.ic_check_no);
                 }
             }
-            else if(quizResult.questionNumber == 5){
-                if(quizResult.correct){
+            else if(questionResult.questionNumber == 5){
+                if(questionResult.correct){
                     ivGradeFive.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
                     ivGradeFive.setImageResource(R.drawable.ic_check_no);
                 }
             }
-            else if(quizResult.questionNumber == 6){
-                if(quizResult.correct){
+            else if(questionResult.questionNumber == 6){
+                if(questionResult.correct){
                     ivGradeSix.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
                     ivGradeSix.setImageResource(R.drawable.ic_check_no);
                 }
             }
-            else if(quizResult.questionNumber == 7){
-                if(quizResult.correct){
+            else if(questionResult.questionNumber == 7){
+                if(questionResult.correct){
                     ivGradeSeven.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
                     ivGradeSeven.setImageResource(R.drawable.ic_check_no);
                 }
             }
-            else if(quizResult.questionNumber == 8){
-                if(quizResult.correct){
+            else if(questionResult.questionNumber == 8){
+                if(questionResult.correct){
                     ivGradeEight.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
                     ivGradeEight.setImageResource(R.drawable.ic_check_no);
                 }
             }
-            else if(quizResult.questionNumber == 9){
-                if(quizResult.correct){
+            else if(questionResult.questionNumber == 9){
+                if(questionResult.correct){
                     ivGradeNine.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
                     ivGradeNine.setImageResource(R.drawable.ic_check_no);
                 }
             }
-            else if(quizResult.questionNumber == 10){
-                if(quizResult.correct){
+            else if(questionResult.questionNumber == 10){
+                if(questionResult.correct){
                     ivGradeTen.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
