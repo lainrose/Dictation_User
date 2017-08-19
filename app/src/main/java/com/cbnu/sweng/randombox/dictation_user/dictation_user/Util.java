@@ -32,9 +32,8 @@ public class Util {
         finally {}
     }
 
-    public void MoveAcitivity(Context context, final Class<? extends Activity> ActivityToOpen, String parm) {
+    public void MoveAcitivity(Context context, final Class<? extends Activity> ActivityToOpen) {
         Intent intent = new Intent(context, ActivityToOpen);
-        intent.putExtra("Key", parm);
         context.startActivity(intent);
     }
     public void MoveAcitivity(Context context, final Class<? extends Activity> ActivityToOpen, QuizResult quizResult) {

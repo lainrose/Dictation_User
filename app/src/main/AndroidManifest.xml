@@ -11,16 +11,19 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".ui.sign.SignInActivity" />
         <activity android:name=".ui.main.ExamResultPage">
+
+        </activity>
+        <activity android:name=".ui.main.ExamResultDetailedPage" />
+        <activity android:name=".ui.main.MainPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.ExamResultDetailedPage"></activity>
     </application>
 
 </manifest>
