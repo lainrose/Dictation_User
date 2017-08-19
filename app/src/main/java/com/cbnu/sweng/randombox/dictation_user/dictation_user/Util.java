@@ -11,6 +11,8 @@ import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.QuizResult;
+
 import java.util.Random;
 
 public class Util {
