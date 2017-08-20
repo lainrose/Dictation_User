@@ -29,7 +29,7 @@ public class MainPage extends AppCompatActivity {
             btExamReady.setProgress(btExamReady.getProgress() + 25);
         }
         else if(btExamReady.getProgress() == 100){ // SUCCESS
-            //Util.getInstance().MoveAcitivity(this, ExamPage.class);
+            //Util.getInstance().moveAcitivity(this, ExamPage.class);
         }
         else{
             btExamReady.setProgress(-1); // ERROR

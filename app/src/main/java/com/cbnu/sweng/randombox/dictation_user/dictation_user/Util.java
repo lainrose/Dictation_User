@@ -30,11 +30,11 @@ public class Util {
         finally {}
     }
 
-    public void MoveAcitivity(Context context, final Class<? extends Activity> ActivityToOpen) {
+    public void moveAcitivity(Context context, final Class<? extends Activity> ActivityToOpen) {
         Intent intent = new Intent(context, ActivityToOpen);
         context.startActivity(intent);
     }
-    public void MoveAcitivity(Context context, final Class<? extends Activity> ActivityToOpen, QuizResult quizResult) {
+    public void moveAcitivity(Context context, final Class<? extends Activity> ActivityToOpen, QuizResult quizResult) {
         Intent intent = new Intent(context, ActivityToOpen);
         intent.putExtra("OBJECT", quizResult);
         context.startActivity(intent);

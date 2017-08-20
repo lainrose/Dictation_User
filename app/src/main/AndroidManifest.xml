@@ -18,15 +18,16 @@
         <activity android:name=".ui.main.ExamResultPage">
 
         </activity>
-        <activity android:name=".ui.main.ExamResultDetailedPage" />
+        <activity android:name=".ui.main.ExamResultDetailedPage" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".ui.main.MainPage"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.sign.SignUpActivity"></activity>
     </application>

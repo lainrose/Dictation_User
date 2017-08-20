@@ -31,43 +31,43 @@ public class ExamResultPage extends AppCompatActivity {
 
     @OnClick(R.id.btResultOne)
     void onClickBtResultOne(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
     @OnClick(R.id.btResultTwo)
     void onClickBtResultTwo(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
     @OnClick(R.id.btResultThree)
     void onClickBtResultThree(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
     @OnClick(R.id.btResultFour)
     void onClickBtResultFour(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
     @OnClick(R.id.btResultFive)
     void onClickBtResultFive(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
     @OnClick(R.id.btResultSix)
     void onClickBtResultSix(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
     @OnClick(R.id.btResultSeven)
     void onClickBtResultSeven(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
     @OnClick(R.id.btResultEight)
     void onClickBtResultEight(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
     @OnClick(R.id.btResultNine)
     void onClickBtResultNine(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
     @OnClick(R.id.btResultTen)
     void onClickBtResultTen(){
-        Util.getInstance().MoveAcitivity(this, ExamResultDetailedPage.class, quizResult);
+        Util.getInstance().moveAcitivity(this, ExamResultDetailedPage.class, quizResult);
     }
 
     @OnClick(R.id.btInResultPage)
