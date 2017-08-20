@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.SignInActivity"
+    tools:context="com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.SignUpActivity"
     android:background="#DDDDDD">
 
     <android.support.v7.widget.Toolbar
@@ -18,7 +18,7 @@
         android:theme="?attr/actionBarTheme" />
 
     <EditText
-        android:id="@+id/etStudentNameIn"
+        android:id="@+id/etStudentNameUp"
         android:textColor="#333333"
         android:textColorHint="#aaaaaa"
         android:background="#ffffffff"
@@ -33,11 +33,11 @@
         android:imeOptions="actionNext"
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true">
-    <requestFocus />
+        <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/etSchoolNameIn"
+        android:id="@+id/etSchoolNameUp"
         android:textColor="#333333"
         android:textColorHint="#aaaaaa"
         android:background="#ffffff"
@@ -48,12 +48,13 @@
         android:layout_marginRight="20.0dip"
         android:layout_marginBottom="2.0dip"
         android:hint="학교"
-        android:layout_below="@id/etStudentNameIn"
+        android:layout_below="@id/etStudentNameUp"
         android:layout_centerHorizontal="true"
-        android:imeOptions="actionDone" />
+        android:imeOptions="actionDone"
+        android:focusable="false"/>
 
     <EditText
-        android:id="@+id/etStudentInfoIn"
+        android:id="@+id/etStudentInfoUp"
         android:textColor="#333333"
         android:textColorHint="#aaaaaa"
         android:background="#ffffff"
@@ -63,10 +64,11 @@
         android:layout_marginLeft="20.0dip"
         android:layout_marginRight="20.0dip"
         android:layout_marginBottom="10.0dip"
-        android:hint="학년 / 반 / 이름"
-        android:layout_below="@id/etSchoolNameIn"
+        android:hint="학년 / 반 / 출석번호"
+        android:layout_below="@id/etSchoolNameUp"
         android:layout_centerHorizontal="true"
-        android:imeOptions="actionDone" />
+        android:imeOptions="actionDone"
+        android:focusable="false"/>
 
     <LinearLayout
         android:id="@+id/layout"
@@ -74,23 +76,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="20.0dip"
-        android:layout_below="@id/etStudentInfoIn">
+        android:layout_below="@id/etStudentInfoUp">
 
-        <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/cbAutoLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="자동 로그인"
-            android:textColor="#000000"
-            android:textSize="@dimen/text_size"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/btSignIn"
+        android:id="@+id/btSignUp"
         android:textSize="@dimen/text_size"
         android:textColor="#FFFFFF"
         android:background="@drawable/border_sign"
@@ -100,7 +91,7 @@
         android:layout_marginLeft="20.0dip"
         android:layout_marginRight="20.0dip"
         android:layout_marginBottom="10.0dip"
-        android:text="로그인하기"
+        android:text="가입하기"
         android:layout_below="@id/layout"
         android:layout_centerHorizontal="true" />
 

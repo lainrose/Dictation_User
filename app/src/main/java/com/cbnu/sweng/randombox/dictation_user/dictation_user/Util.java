@@ -18,8 +18,6 @@ import java.util.Random;
 public class Util {
 
     private static Util util = null;
-    private static int screenWidth = 0;
-    private static int screenHeight = 0;
 
     public static synchronized Util getInstance()
     {
