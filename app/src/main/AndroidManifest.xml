@@ -29,17 +29,12 @@
         <activity android:name=".ui.sign.SignUpActivity" />
 
         <activity android:name=".ui.main.ExamActivity"
-            android:screenOrientation="landscape"
-
-            >
-
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
 
     </application>

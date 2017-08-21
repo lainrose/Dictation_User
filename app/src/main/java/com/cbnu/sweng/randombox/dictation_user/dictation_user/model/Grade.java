@@ -1,12 +1,13 @@
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by user on 2017-08-21.
  */
 
-public class Grade {
+public class Grade implements Serializable {
 
     private int questionNumber;
     private boolean correct;

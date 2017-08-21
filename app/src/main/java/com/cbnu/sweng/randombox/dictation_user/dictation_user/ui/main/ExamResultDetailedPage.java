@@ -42,7 +42,7 @@ public class ExamResultDetailedPage extends AppCompatActivity {
         quizResults = (QuizResult) intent.getSerializableExtra("OBJECT");
         int questionNumber = intent.getIntExtra("questionNumber", 0);
 
-        for(QuestionResult questionResult : quizResults.getQuestionResults()){
+        for(QuestionResult questionResult : quizResults.getQuestionResult()){
 
             if(questionResult.getQuestionNumber() == questionNumber){
                 tvStudentAnswer.setText(questionResult.getSubmittedAnswer());

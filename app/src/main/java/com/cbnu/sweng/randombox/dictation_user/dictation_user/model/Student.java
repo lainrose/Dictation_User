@@ -1,10 +1,12 @@
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.model;
 
+import java.io.Serializable;
+
 /**
  * Created by user on 2017-08-14.
  */
 
-public class Student {
+public class Student implements Serializable {
 
     public volatile static Student student;
     private String name;

@@ -12,14 +12,19 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.ApiRequester;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.BuildConfig;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Question;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Quiz;
 import com.myscript.atk.sltw.SingleLineWidget;
 import com.myscript.atk.sltw.SingleLineWidgetApi;
 import com.myscript.atk.text.CandidateInfo;
 import com.myscript.certificate.MyCertificate;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 
 public class ExamActivity extends AppCompatActivity implements
         SingleLineWidgetApi.OnConfiguredListener,
@@ -92,6 +97,29 @@ public class ExamActivity extends AppCompatActivity implements
 
         widget.setText(mTextField.getText().toString());
         isCorrectionMode = 0;
+
+        ApiRequester apiRequester = new ApiRequester();
+
+        try {
+            apiRequester.getTeachersQuizzes(new ApiRequester.UserCallback<List<Quiz>>() {
+                @Override
+                public void onSuccess(List<Quiz> result) {
+                    for(Quiz quiz : result){
+                        for(Question ques : quiz.getQuestions()){
+                            String number = String.valueOf(ques.getNumber());
+                            String question = ques.getSentence();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFail() {
+
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

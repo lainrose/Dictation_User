@@ -119,9 +119,9 @@ public class ExamResultPage extends AppCompatActivity {
             ivScore.setImageResource(R.drawable.score100);
         }
 
-        for (QuestionResult questionResult : quizResult.getQuestionResults()) {
+        for (QuestionResult questionResult : quizResult.getQuestionResult()) {
             if(questionResult.getQuestionNumber() == 1){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeOne.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
@@ -129,7 +129,7 @@ public class ExamResultPage extends AppCompatActivity {
                 }
             }
             else if(questionResult.getQuestionNumber() == 2){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeTwo.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
@@ -137,7 +137,7 @@ public class ExamResultPage extends AppCompatActivity {
                 }
             }
             else if(questionResult.getQuestionNumber() == 3){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeThree.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
@@ -145,7 +145,7 @@ public class ExamResultPage extends AppCompatActivity {
                 }
             }
             else if(questionResult.getQuestionNumber() == 4){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeFour.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
@@ -153,7 +153,7 @@ public class ExamResultPage extends AppCompatActivity {
                 }
             }
             else if(questionResult.getQuestionNumber() == 5){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeFive.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
@@ -161,7 +161,7 @@ public class ExamResultPage extends AppCompatActivity {
                 }
             }
             else if(questionResult.getQuestionNumber() == 6){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeSix.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
@@ -169,7 +169,7 @@ public class ExamResultPage extends AppCompatActivity {
                 }
             }
             else if(questionResult.getQuestionNumber() == 7){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeSeven.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
@@ -177,7 +177,7 @@ public class ExamResultPage extends AppCompatActivity {
                 }
             }
             else if(questionResult.getQuestionNumber() == 8){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeEight.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
@@ -185,7 +185,7 @@ public class ExamResultPage extends AppCompatActivity {
                 }
             }
             else if(questionResult.getQuestionNumber() == 9){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeNine.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{
@@ -193,7 +193,7 @@ public class ExamResultPage extends AppCompatActivity {
                 }
             }
             else if(questionResult.getQuestionNumber() == 10){
-                if(questionResult.isCorrect()){
+                if(questionResult.getCorrect()){
                     ivGradeTen.setImageResource(R.drawable.ic_check_ok);
                 }
                 else{

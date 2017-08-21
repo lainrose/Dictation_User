@@ -1,43 +1,32 @@
+
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by son on 2017-08-19.
- */
+public class QuizResult implements Serializable{
 
-public class QuizResult implements Serializable {
+    @SerializedName("quiz_number")
+    @Expose
+    private Integer quizNumber;
+    @SerializedName("student_name")
+    @Expose
+    private String studentName;
+    @SerializedName("score")
+    @Expose
+    private Integer score;
+    @SerializedName("question_results")
+    @Expose
+    private List<QuestionResult> questionResult = null;
 
-    private String id;
-    private int quizNumber; //대응되는 시험의 번호
-    private Date date; //날짜
-    private String studentName; //시험 본 학생 이름
-    private int score; //점수
-    private QuestionResult[] questionResults; //문제 결과들의 집합
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public int getQuizNumber() {
+    public Integer getQuizNumber() {
         return quizNumber;
     }
 
-    public void setQuizNumber(int quizNumber) {
+    public void setQuizNumber(Integer quizNumber) {
         this.quizNumber = quizNumber;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public String getStudentName() {
@@ -48,19 +37,20 @@ public class QuizResult implements Serializable {
         this.studentName = studentName;
     }
 
-    public int getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 
-    public QuestionResult[] getQuestionResults() {
-        return questionResults;
+    public List<QuestionResult> getQuestionResult() {
+        return questionResult;
     }
 
-    public void setQuestionResults(QuestionResult[] questionResults) {
-        this.questionResults = questionResults;
+    public void setQuestionResult(List<QuestionResult> questionResult) {
+        this.questionResult = questionResult;
     }
+
 }
