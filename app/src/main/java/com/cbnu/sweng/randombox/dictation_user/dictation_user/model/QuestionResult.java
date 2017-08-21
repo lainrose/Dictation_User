@@ -1,57 +1,57 @@
+
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.model;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by son on 2017-08-19.
- */
-
 public class QuestionResult implements Serializable {
 
-    private String id;
-    private int questionNumber; //대응되는 문제의 번호
-    private boolean correct;  //정답여부
+    @SerializedName("question_number")
+    @Expose
+    private Integer questionNumber;
+    @SerializedName("correct")
+    @Expose
+    private Boolean correct;
+    @SerializedName("rectify")
+    @Expose
     private ArrayList<String[]> rectify; //틀린부분
-    private String SubmittedAnswer; //학생이 실제 작성한 답안
+    @SerializedName("submitted_answer")
+    @Expose
+    private String submittedAnswer;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public int getQuestionNumber() {
+    public Integer getQuestionNumber() {
         return questionNumber;
     }
 
-    public void setQuestionNumber(int questionNumber) {
+    public void setQuestionNumber(Integer questionNumber) {
         this.questionNumber = questionNumber;
     }
 
-    public boolean isCorrect() {
-        return correct;
-    }
-
-    public void setCorrect(boolean correct) {
-        this.correct = correct;
-    }
-
     public String getSubmittedAnswer() {
-        return SubmittedAnswer;
+        return submittedAnswer;
     }
 
     public void setSubmittedAnswer(String submittedAnswer) {
-        SubmittedAnswer = submittedAnswer;
+        this.submittedAnswer = submittedAnswer;
     }
 
     public ArrayList<String[]> getRectify() {
         return rectify;
     }
 
-    public void setRectify(ArrayList<String[]> wrongPart) {
-        this.rectify = wrongPart;
+    public void setRectify(ArrayList<String[]> rectify) {
+        this.rectify = rectify;
     }
+
+    public Boolean getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(Boolean correct) {
+        this.correct = correct;
+    }
+
 }

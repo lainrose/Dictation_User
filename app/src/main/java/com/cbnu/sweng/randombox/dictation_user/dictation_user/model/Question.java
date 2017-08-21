@@ -1,38 +1,34 @@
+
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.model;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-/**
- * Created by son on 2017-08-19.
- */
+public class Question implements Serializable {
 
-public class Question implements Serializable{
+    @SerializedName("number")
+    @Expose
+    private Integer Number;
+    @SerializedName("sentence")
+    @Expose
+    private String sentence;
 
-    private String id;
-    private int number; //문제 번호
-    private String sentence; //문장
-
-    public String getId() {
-        return id;
+    public Integer getNumber() {
+        return Number;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumber(Integer questionNumber) {
+        this.Number = questionNumber;
     }
 
     public String getSentence() {
         return sentence;
     }
 
-    public void setSentence(String sentence) {
-        this.sentence = sentence;
+    public void setSentence(String answer) {
+        this.sentence = answer;
     }
+
 }
