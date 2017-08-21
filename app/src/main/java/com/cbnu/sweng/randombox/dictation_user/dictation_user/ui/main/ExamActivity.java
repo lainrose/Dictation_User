@@ -21,7 +21,7 @@ import com.myscript.certificate.MyCertificate;
 
 import java.io.Serializable;
 
-public class ExamActivity extends AppCompatActivity implements
+public class ExamActivity extends AppCompatActivity implements // 답안, 문제, 문제번호 넘김
         SingleLineWidgetApi.OnConfiguredListener,
         SingleLineWidgetApi.OnTextChangedListener,
         CustomEditText.OnSelectionChanged,
@@ -123,7 +123,7 @@ public class ExamActivity extends AppCompatActivity implements
     }
 
     public void onCheckButtonClick(View v) {
-        getEdit = mTextField.getText().toString(); // 텍스트 변수 저장
+        getEdit = mTextField.getText().toString(); // 텍스트 변수 저장 // 서버에 의해서 화면 전환 될 때마다 배열로 답안 저장
         Toast.makeText(getApplicationContext(), getEdit, Toast.LENGTH_LONG).show();
     }
 
@@ -134,7 +134,7 @@ public class ExamActivity extends AppCompatActivity implements
             Log.e(TAG, "Unable to configure the Single Line Widget: " + widget.getErrorString());
             return;
         }
-        Toast.makeText(getApplicationContext(), "Single Line Widget Configured", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Single Line Widget Configured", Toast.LENGTH_SHORT).show();
         if (BuildConfig.DEBUG)
             Log.d(TAG, "Single Line Widget configured!");
     }
