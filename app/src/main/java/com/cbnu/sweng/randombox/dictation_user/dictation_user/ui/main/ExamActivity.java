@@ -17,6 +17,8 @@ import com.cbnu.sweng.randombox.dictation_user.dictation_user.BuildConfig;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Question;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Quiz;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.myscript.atk.sltw.SingleLineWidget;
 import com.myscript.atk.sltw.SingleLineWidgetApi;
 import com.myscript.atk.text.CandidateInfo;
@@ -47,6 +49,9 @@ public class ExamActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FirebaseMessaging.getInstance().subscribeToTopic("hmu");
+        FirebaseInstanceId.getInstance().getToken();
 
         setContentView(R.layout.activity_exam);
 
