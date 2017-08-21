@@ -16,7 +16,6 @@ public class QuizResult implements Serializable {
     private int score; //점수
     private QuestionResult[] questionResults; //문제 결과들의 집합
 
-
     public String getId() {
         return id;
     }

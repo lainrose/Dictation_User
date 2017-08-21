@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by user on 2017-08-21.
  */
 
-public class GraderResult {
+public class Grade {
 
     private int questionNumber;
     private boolean correct;
