@@ -47,11 +47,11 @@ public class QuestionResult implements Serializable {
         SubmittedAnswer = submittedAnswer;
     }
 
-    public ArrayList<String[]> getWrongPart() {
+    public ArrayList<String[]> getRectify() {
         return rectify;
     }
 
-    public void setWrongPart(ArrayList<String[]> wrongPart) {
+    public void setRectify(ArrayList<String[]> wrongPart) {
         this.rectify = wrongPart;
     }
 }

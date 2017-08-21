@@ -40,4 +40,11 @@ public class Util {
         context.startActivity(intent);
     }
 
+    public void moveAcitivity(Context context, final Class<? extends Activity> ActivityToOpen, QuizResult quizResult, int questionNumber) {
+        Intent intent = new Intent(context, ActivityToOpen);
+        intent.putExtra("OBJECT", quizResult);
+        intent.putExtra("questionNumber", questionNumber);
+        context.startActivity(intent);
+    }
+
 }
