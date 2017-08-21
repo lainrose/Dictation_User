@@ -3,36 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cbnu.sweng.randombox.dictation_user.dictation_user">
 
+    <!-- PERMMISSION -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        tools:replace="android:allowBackup,android:icon,android:label,android:supportsRtl,android:theme"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup,android:icon,android:label,android:supportsRtl,android:theme">
         <activity
             android:name=".SplashActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".ui.sign.SignInActivity" />
-        <activity android:name=".ui.main.ExamResultPage">
+        <activity android:name=".ui.main.ExamResultPage"></activity>
+        <activity android:name=".ui.main.ExamResultDetailedPage">
 
         </activity>
-        <activity android:name=".ui.main.ExamResultDetailedPage" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".ui.main.MainPage"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".ui.sign.SignUpActivity" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
-        <activity android:name=".ui.main.MainPage"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".ui.main.ExamActivity"
+            android:screenOrientation="landscape"
+
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
 
         </activity>
-        <activity android:name=".ui.sign.SignUpActivity"></activity>
+
     </application>
 
-    <!--PERMMISSION-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+
 
 </manifest>

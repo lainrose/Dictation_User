@@ -3,6 +3,7 @@
 buildscript {
     repositories {
         jcenter()
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
@@ -15,6 +16,13 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        flatDir
+                {
+                    dirs '../MyScript_ATK-Core-android-component'
+                    dirs '../MyScript_ATK-IMCommon-android-component'
+                    dirs '../MyScript_ATK-SingleLineWidget-android-widget'
+                    dirs '../MyScript_ATK-Text-android-component'
+                }
     }
 }
 
