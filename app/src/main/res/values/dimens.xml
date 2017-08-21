@@ -14,4 +14,6 @@
     <dimen name="text_size">16sp</dimen>
     <dimen name="selected_text_size">35dp</dimen>
     <dimen name="bt_result_text_size">30sp</dimen>
+    <integer name="text_field_lines">5</integer>
+
 </resources>

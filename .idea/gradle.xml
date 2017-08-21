@@ -8,7 +8,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/MyScript_ATK-Core-android-component" />
+            <option value="$PROJECT_DIR$/MyScript_ATK-IMCommon-android-component" />
+            <option value="$PROJECT_DIR$/MyScript_ATK-SingleLineWidget-android-widget" />
+            <option value="$PROJECT_DIR$/MyScript_ATK-Text-android-component" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/myscript-certificate" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
