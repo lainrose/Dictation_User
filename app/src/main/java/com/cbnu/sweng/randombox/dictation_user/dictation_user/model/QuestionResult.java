@@ -1,6 +1,7 @@
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by son on 2017-08-19.
@@ -11,7 +12,7 @@ public class QuestionResult implements Serializable {
     private String id;
     private int questionNumber; //대응되는 문제의 번호
     private boolean correct;  //정답여부
-	//??? wrongPart; //틀린부분
+    private ArrayList<String[]> rectify; //틀린부분
     private String SubmittedAnswer; //학생이 실제 작성한 답안
 
     public String getId() {
@@ -44,5 +45,13 @@ public class QuestionResult implements Serializable {
 
     public void setSubmittedAnswer(String submittedAnswer) {
         SubmittedAnswer = submittedAnswer;
+    }
+
+    public ArrayList<String[]> getWrongPart() {
+        return rectify;
+    }
+
+    public void setWrongPart(ArrayList<String[]> wrongPart) {
+        this.rectify = wrongPart;
     }
 }
