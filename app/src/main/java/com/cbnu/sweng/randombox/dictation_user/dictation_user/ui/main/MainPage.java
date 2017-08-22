@@ -24,29 +24,23 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainPage extends AppCompatActivity {
+    @BindView(R.id.tvTeacherSchoolName)
+    TextView tvTeacherSchoolName;
+    @BindView(R.id.tvTeacherName)
+    TextView tvTeacherName;
+    @BindView(R.id.etTeacherId)
+    EditText etTeacherId;
+    @BindView(R.id.btExamReady)
+    ActionProcessButton btExamReady;
 
-
-    private BroadcastReceiver myReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Util.getInstance().moveAcitivity(MainPage.this, ExamActivity.class);
-        }
-    };
-    @BindView(R.id.tvTeacherSchoolName) TextView tvTeacherSchoolName;
-    @BindView(R.id.tvTeacherName) TextView tvTeacherName;
-    @BindView(R.id.etTeacherId) EditText etTeacherId;
-    @BindView(R.id.btExamReady) ActionProcessButton btExamReady;
     @OnClick(R.id.btExamReady)
-    void onClickBtExamReady(){
-        if(btExamReady.getProgress() < 100){ // LOADING
+    void onClickBtExamReady() {
+        if (btExamReady.getProgress() < 100) { // LOADING
             btExamReady.setProgress(btExamReady.getProgress() + 25);
-        }
-        else if(btExamReady.getProgress() == 100){ // SUCCESS
+        } else if (btExamReady.getProgress() == 100) { // SUCCESS
             //Util.getInstance().moveAcitivity(this, ExamActivity.class);
-        }
-        else{
+        } else {
             btExamReady.setProgress(-1); // ERROR
-
         }
     }
 
@@ -65,8 +59,7 @@ public class MainPage extends AppCompatActivity {
         ButterKnife.bind(this);
         FirebaseMessaging.getInstance().subscribeToTopic("teacherId");
         FirebaseInstanceId.getInstance().getToken();
-        registerReceiver(myReceiver, new IntentFilter(MyFirebaseMessagingService.INTENT_FILTER));
-
+        registerReceiver(myReceiver, new IntentFilter(MyFirebaseMessagingService.START_INTENT));
 
         etTeacherId.addTextChangedListener(new TextWatcher() {
             @Override
@@ -82,18 +75,24 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 //TODO 서버에서 교사정보 가져와서 설정하기
-                if(false){ // 교사정보 있으면
+                if (false) { // 교사정보 있으면
                     tvTeacherSchoolName.setText("OK");
                     tvTeacherName.setText("OK");
-                }
-                else{ // 없으면
+                } else { // 없으면
                     tvTeacherSchoolName.setText("아이디를 다시 입력해주세요.");
-                    tvTeacherSchoolName.setPadding(20,5,20,5);
+                    tvTeacherSchoolName.setPadding(20, 5, 20, 5);
                     tvTeacherName.setText("아이디를 다시 입력해주세요.");
-                    tvTeacherName.setPadding(20,5,20,5);
+                    tvTeacherName.setPadding(20, 5, 20, 5);
                 }
 
             }
         });
     }
+
+    private BroadcastReceiver myReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Util.getInstance().moveAcitivity(MainPage.this, ExamActivity.class);
+        }
+    };
 }

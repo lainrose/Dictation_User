@@ -17,7 +17,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
     String keyword;
     String quizHistoryId;
-    public static final String INTENT_FILTER = "INTENT_FILTER";
+    public static final String START_INTENT = "START_INTENT";
+    public static final String QUIZ_CONTROL_INTENT = "QUIZ_CONTROL_INTENT";
+
 
     /**
      * Called when message is received.
@@ -36,12 +38,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
-            if(remoteMessage.getData().get("message") != null) {
+            if (remoteMessage.getData().get("message") != null) {
                 keyword = remoteMessage.getData().get("message");
-
             }
 
-            if(remoteMessage.getData().get("quizHistoryId") != null) {
+            if (remoteMessage.getData().get("quizHistoryId") != null) {
                 quizHistoryId = remoteMessage.getData().get("quizHistoryId");
             } else {
                 quizHistoryId = "뀨뀨까까";
@@ -54,12 +55,22 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     Toast.makeText(getApplicationContext(),
                             keyword + quizHistoryId,
                             Toast.LENGTH_LONG).show();
-                    if(keyword.equals("start")){
-                        Intent intent = new Intent(INTENT_FILTER);
-                        sendBroadcast(intent);
-                    }
                 }
             });
+
+            if (keyword.equals("start")) {
+                Intent intent = new Intent(START_INTENT);
+                sendBroadcast(intent);
+            } else if (keyword.equals("next")) {
+                Intent intent = new Intent(QUIZ_CONTROL_INTENT);
+                intent.putExtra("keyword", "next");
+                sendBroadcast(intent);
+            } else if (keyword.equals("previous")) {
+                Intent intent = new Intent(QUIZ_CONTROL_INTENT);
+                intent.putExtra("keyword", "previous");
+                sendBroadcast(intent);
+            }
+
 //            if (/* Check if data needs to be processed by long running job */ true) {
 //                // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
 //                scheduleJob();
