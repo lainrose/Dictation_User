@@ -22,6 +22,7 @@ public class Quiz implements Serializable {
     private List<Question> questions = null;
 
     public Integer getNumber() {
+
         return number;
     }
 

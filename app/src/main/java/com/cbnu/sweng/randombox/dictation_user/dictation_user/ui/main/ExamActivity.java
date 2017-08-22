@@ -18,12 +18,18 @@ import android.widget.Toast;
 
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.ApiRequester;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.BuildConfig;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.Grader;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.NaverSpellChecker;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.BeforeCheck;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Grade;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Question;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.QuestionResult;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Quiz;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.service.MyFirebaseMessagingService;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.QuizResult;
 import com.myscript.atk.sltw.SingleLineWidget;
 import com.myscript.atk.sltw.SingleLineWidgetApi;
 import com.myscript.atk.text.CandidateInfo;
@@ -31,9 +37,10 @@ import com.myscript.certificate.MyCertificate;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class ExamActivity extends AppCompatActivity implements
+public class ExamActivity extends AppCompatActivity implements // 답안, 문제, 문제번호 넘김
         SingleLineWidgetApi.OnConfiguredListener,
         SingleLineWidgetApi.OnTextChangedListener,
         CustomEditText.OnSelectionChanged,
@@ -42,12 +49,19 @@ public class ExamActivity extends AppCompatActivity implements
         SingleLineWidgetApi.OnUserScrollListener
 
 {
+
     private static final String TAG = "SingleLineDemo";
 
     private SingleLineWidgetApi widget;
     private CustomEditText mTextField;
     private int isCorrectionMode;
-    String getEdit;
+    String SubmittedAnswer;
+    ArrayList<QuizResult> info;
+    //String answer[] = new String[10];
+    int count = 0;
+    String number;
+    String question;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,8 +125,8 @@ public class ExamActivity extends AppCompatActivity implements
             apiRequester.getTeachersQuizzes(new ApiRequester.UserCallback<List<Quiz>>() {
                 @Override
                 public void onSuccess(List<Quiz> result) {
-                    for (Quiz quiz : result) {
-                        for (Question ques : quiz.getQuestions()) {
+                    for(Quiz quiz : result){
+                        for(Question ques : quiz.getQuestions()) {
                             String number = String.valueOf(ques.getNumber());
                             String question = ques.getSentence();
                         }
@@ -129,6 +143,47 @@ public class ExamActivity extends AppCompatActivity implements
         }
 
     }
+
+
+
+//    public void onClearButtonClick(ArrayList<String[]> testRes) {
+//
+//        ArrayList<String[]> arr= new ArrayList<String[]>();
+//
+//        String[] str = new String[10];
+//
+//        str[0] = question;
+//        str[1] = num;
+//        str[2] = answer;
+//
+//                arr.add(str);
+//
+//
+//        SubmittedAnswer = mTextField.getText().toString();
+//        QR.setSubmittedAnswer(SubmittedAnswer);
+//
+//        widget.clear();
+//
+//    }
+
+    //public void EndExam(ArrayList<String[]> testRes) {
+//        info= new ArrayList<QuizResult>();
+//
+//        QuizResult quizResult = new QuizResult();
+//
+//        for (String[] result : testRes) {
+//            quizResult.setQuizNumber(Integer.parseInt(result[0])); // 문제번호
+//            quizResult.set(result[1]); // 문제
+//            quizResult.setSubmittedanswer(SubmittedAnswer); // 작성답안
+//
+//
+//            info.add(quizResult);
+//        }
+//
+//        Intent intent = new Intent(ExamActivity.this, ExamResultPage.class);
+//        intent.putExtra("OBJECT", info);
+
+
 
     @Override
     protected void onDestroy() {
@@ -158,8 +213,8 @@ public class ExamActivity extends AppCompatActivity implements
     }
 
     public void onCheckButtonClick(View v) {
-        getEdit = mTextField.getText().toString(); // 텍스트 변수 저장
-        Toast.makeText(getApplicationContext(), getEdit, Toast.LENGTH_LONG).show();
+        SubmittedAnswer = mTextField.getText().toString(); // 텍스트 변수 저장 // 서버에 의해서 화면 전환 될 때마다 배열로 답안 저장
+        Toast.makeText(getApplicationContext(), SubmittedAnswer, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -169,7 +224,7 @@ public class ExamActivity extends AppCompatActivity implements
             Log.e(TAG, "Unable to configure the Single Line Widget: " + widget.getErrorString());
             return;
         }
-        Toast.makeText(getApplicationContext(), "Single Line Widget Configured", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Single Line Widget Configured", Toast.LENGTH_SHORT).show();
         if (BuildConfig.DEBUG)
             Log.d(TAG, "Single Line Widget configured!");
     }
