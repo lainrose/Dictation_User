@@ -50,7 +50,7 @@ public class ExamActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FirebaseMessaging.getInstance().subscribeToTopic("hmu");
+        FirebaseMessaging.getInstance().subscribeToTopic("teacherId");
         FirebaseInstanceId.getInstance().getToken();
 
         setContentView(R.layout.activity_exam);
