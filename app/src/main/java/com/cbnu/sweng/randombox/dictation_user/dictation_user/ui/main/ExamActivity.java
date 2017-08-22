@@ -50,9 +50,6 @@ public class ExamActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FirebaseMessaging.getInstance().subscribeToTopic("teacherId");
-        FirebaseInstanceId.getInstance().getToken();
-
         setContentView(R.layout.activity_exam);
 
         mTextField = (CustomEditText) findViewById(R.id.textField);

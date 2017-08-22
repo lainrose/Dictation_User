@@ -1,5 +1,6 @@
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.service;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -16,6 +17,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
     String keyword;
     String quizHistoryId;
+    public static final String INTENT_FILTER = "INTENT_FILTER";
 
     /**
      * Called when message is received.
@@ -36,6 +38,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             if(remoteMessage.getData().get("message") != null) {
                 keyword = remoteMessage.getData().get("message");
+
             }
 
             if(remoteMessage.getData().get("quizHistoryId") != null) {
@@ -51,6 +54,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     Toast.makeText(getApplicationContext(),
                             keyword + quizHistoryId,
                             Toast.LENGTH_LONG).show();
+                    if(keyword.equals("start")){
+                        Intent intent = new Intent(INTENT_FILTER);
+                        sendBroadcast(intent);
+                    }
                 }
             });
 //            if (/* Check if data needs to be processed by long running job */ true) {

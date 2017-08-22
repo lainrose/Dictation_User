@@ -1,5 +1,9 @@
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.main;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +14,10 @@ import android.widget.TextView;
 
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.Util;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.service.MyFirebaseMessagingService;
 import com.dd.processbutton.iml.ActionProcessButton;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,6 +26,12 @@ import butterknife.OnClick;
 public class MainPage extends AppCompatActivity {
 
 
+    private BroadcastReceiver myReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Util.getInstance().moveAcitivity(MainPage.this, ExamActivity.class);
+        }
+    };
     @BindView(R.id.tvTeacherSchoolName) TextView tvTeacherSchoolName;
     @BindView(R.id.tvTeacherName) TextView tvTeacherName;
     @BindView(R.id.etTeacherId) EditText etTeacherId;
@@ -29,12 +42,18 @@ public class MainPage extends AppCompatActivity {
             btExamReady.setProgress(btExamReady.getProgress() + 25);
         }
         else if(btExamReady.getProgress() == 100){ // SUCCESS
-            Util.getInstance().moveAcitivity(this, ExamActivity.class);
+            //Util.getInstance().moveAcitivity(this, ExamActivity.class);
         }
         else{
             btExamReady.setProgress(-1); // ERROR
 
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(myReceiver);
     }
 
     @Override
@@ -44,6 +63,10 @@ public class MainPage extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main_page);
         ButterKnife.bind(this);
+        FirebaseMessaging.getInstance().subscribeToTopic("teacherId");
+        FirebaseInstanceId.getInstance().getToken();
+        registerReceiver(myReceiver, new IntentFilter(MyFirebaseMessagingService.INTENT_FILTER));
+
 
         etTeacherId.addTextChangedListener(new TextWatcher() {
             @Override
