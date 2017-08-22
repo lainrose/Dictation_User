@@ -38,32 +38,32 @@ public class ExamResultDetailedPage extends AppCompatActivity {
         tvTable2.setPaintFlags(tvTable1.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
         tvTable3.setPaintFlags(tvTable1.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
 
-        Intent intent = getIntent();
-        quizResults = (QuizResult) intent.getSerializableExtra("OBJECT");
-        int questionNumber = intent.getIntExtra("questionNumber", 0);
-
-        for(QuestionResult questionResult : quizResults.getQuestionResult()){
-
-            if(questionResult.getQuestionNumber() == questionNumber){
-                tvStudentAnswer.setText(questionResult.getSubmittedAnswer());
-                ArrayList<String[]> AnswerSheet = questionResult.getRectify();
-                String result = "";
-                for(String str[] : AnswerSheet){
-                    if(str[0].equals("green")){
-                        result += "<font color=\"##1DDB16\">" + str[1] + "</font>";
-                    }
-                    else if(str[0].equals("red")){
-                        result += "<font color=\"##FF0000\">" + str[1] + "</font>";
-
-                    }
-                    else if(str[0].equals("purple")){
-                        result += "<font color=\"##5F00FF\">" + str[1] + "</font>";
-                    }
-                }
-                tvAnswerSheet.setText(Html.fromHtml(result));
-            }
-
-        }
+//        Intent intent = getIntent();
+//        quizResults = (QuizResult) intent.getSerializableExtra("OBJECT");
+//        int questionNumber = intent.getIntExtra("questionNumber", 0);
+//
+//        for(QuestionResult questionResult : quizResults.getQuestionResult()){
+//
+//            if(questionResult.getQuestionNumber() == questionNumber){
+//                tvStudentAnswer.setText(questionResult.getSubmittedAnswer());
+//                ArrayList<String[]> AnswerSheet = questionResult.getRectify();
+//                String result = "";
+//                for(String str[] : AnswerSheet){
+//                    if(str[0].equals("green")){
+//                        result += "<font color=\"##1DDB16\">" + str[1] + "</font>";
+//                    }
+//                    else if(str[0].equals("red")){
+//                        result += "<font color=\"##FF0000\">" + str[1] + "</font>";
+//
+//                    }
+//                    else if(str[0].equals("purple")){
+//                        result += "<font color=\"##5F00FF\">" + str[1] + "</font>";
+//                    }
+//                }
+//                tvAnswerSheet.setText(Html.fromHtml(result));
+//            }
+//
+//        }
 
     }
 }

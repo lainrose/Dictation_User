@@ -8,6 +8,8 @@ import android.os.Bundle;
 
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.SignInActivity;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.sign.SignUpActivity;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class SplashActivity extends AppCompatActivity {
 
