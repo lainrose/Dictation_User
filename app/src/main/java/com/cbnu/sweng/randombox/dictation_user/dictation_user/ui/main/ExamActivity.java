@@ -24,6 +24,7 @@ import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Grade;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Question;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.QuestionResult;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Quiz;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.QuizResult;
 import com.myscript.atk.sltw.SingleLineWidget;
 import com.myscript.atk.sltw.SingleLineWidgetApi;
 import com.myscript.atk.text.CandidateInfo;
@@ -50,9 +51,11 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
     private CustomEditText mTextField;
     private int isCorrectionMode;
     String SubmittedAnswer;
-    ArrayList<BeforeCheck> test;
-    String answer[] = new String[10];
+    ArrayList<QuizResult> info;
+    //String answer[] = new String[10];
     int count = 0;
+    String number;
+    String question;
 
 
     @Override
@@ -119,10 +122,11 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
                 @Override
                 public void onSuccess(List<Quiz> result) {
                     for(Quiz quiz : result){
-                        for(Question ques : quiz.getQuestions()){
+                        for(Question ques : quiz.getQuestions()) {
                             String number = String.valueOf(ques.getNumber());
                             String question = ques.getSentence();
-                         }
+
+                        }
                     }
                 }
 
@@ -139,26 +143,45 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
 
 
 
-    public void onClearButtonClick(ArrayList<String[]> testRes) {
-        test = new ArrayList<BeforeCheck>();
-        BeforeCheck bc = new BeforeCheck();
+//    public void onClearButtonClick(ArrayList<String[]> testRes) {
+//
+//        ArrayList<String[]> arr= new ArrayList<String[]>();
+//
+//        String[] str = new String[10];
+//
+//        str[0] = question;
+//        str[1] = num;
+//        str[2] = answer;
+//
+//                arr.add(str);
+//
+//
+//        SubmittedAnswer = mTextField.getText().toString();
+//        QR.setSubmittedAnswer(SubmittedAnswer);
+//
+//        widget.clear();
+//
+//    }
 
-        for (String[] result : testRes) {
-            bc.setNumber(result[0]);
-            bc.setSentence(result[1]);
-            bc.setSubmittedanswer(SubmittedAnswer);
+    //public void EndExam(ArrayList<String[]> testRes) {
+//        info= new ArrayList<QuizResult>();
+//
+//        QuizResult quizResult = new QuizResult();
+//
+//        for (String[] result : testRes) {
+//            quizResult.setQuizNumber(Integer.parseInt(result[0])); // 문제번호
+//            quizResult.set(result[1]); // 문제
+//            quizResult.setSubmittedanswer(SubmittedAnswer); // 작성답안
+//
+//
+//            info.add(quizResult);
+//        }
+//
+//        Intent intent = new Intent(ExamActivity.this, ExamResultPage.class);
+//        intent.putExtra("OBJECT", info);
 
-            test.add(bc);
 
-        }
-        widget.clear();
-    }
 
-    public void EndExam() {
-
-        Intent intent = new Intent(ExamActivity.this, ExamResultPage.class);
-        intent.putExtra("OBJECT", test);
-    }
     @Override
     protected void onDestroy() {
         widget.setOnTextChangedListener(null);
