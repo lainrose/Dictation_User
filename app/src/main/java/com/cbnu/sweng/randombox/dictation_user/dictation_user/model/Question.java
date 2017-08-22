@@ -14,6 +14,9 @@ public class Question implements Serializable {
     @SerializedName("sentence")
     @Expose
     private String sentence;
+    @SerializedName("SubmittedAnswer")
+    @Expose
+    private String SubmittedAnswer;
 
     public Integer getNumber() {
         return Number;
@@ -29,6 +32,18 @@ public class Question implements Serializable {
 
     public void setSentence(String answer) {
         this.sentence = answer;
+    }
+
+
+    public String getanswer()
+    {
+        return SubmittedAnswer;
+    }
+
+
+    public void setanswer(String SubmittedAnswer)
+    {
+        this.SubmittedAnswer = SubmittedAnswer;
     }
 
 }

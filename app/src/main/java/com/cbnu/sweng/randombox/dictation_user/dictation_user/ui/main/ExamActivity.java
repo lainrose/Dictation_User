@@ -2,6 +2,8 @@ package com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.main;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.annotation.IntegerRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,8 +16,13 @@ import android.widget.Toast;
 
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.ApiRequester;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.BuildConfig;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.Grader;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.NaverSpellChecker;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.R;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.BeforeCheck;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Grade;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Question;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.QuestionResult;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Quiz;
 import com.myscript.atk.sltw.SingleLineWidget;
 import com.myscript.atk.sltw.SingleLineWidgetApi;
@@ -24,6 +31,7 @@ import com.myscript.certificate.MyCertificate;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExamActivity extends AppCompatActivity implements // 답안, 문제, 문제번호 넘김
@@ -41,7 +49,10 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
     private SingleLineWidgetApi widget;
     private CustomEditText mTextField;
     private int isCorrectionMode;
-    String getEdit;
+    String SubmittedAnswer;
+    ArrayList<BeforeCheck> test;
+    String answer[] = new String[10];
+    int count = 0;
 
 
     @Override
@@ -98,6 +109,9 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
         widget.setText(mTextField.getText().toString());
         isCorrectionMode = 0;
 
+
+
+
         ApiRequester apiRequester = new ApiRequester();
 
         try {
@@ -108,7 +122,7 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
                         for(Question ques : quiz.getQuestions()){
                             String number = String.valueOf(ques.getNumber());
                             String question = ques.getSentence();
-                        }
+                         }
                     }
                 }
 
@@ -123,6 +137,28 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
 
     }
 
+
+
+    public void onClearButtonClick(ArrayList<String[]> testRes) {
+        test = new ArrayList<BeforeCheck>();
+        BeforeCheck bc = new BeforeCheck();
+
+        for (String[] result : testRes) {
+            bc.setNumber(result[0]);
+            bc.setSentence(result[1]);
+            bc.setSubmittedanswer(SubmittedAnswer);
+
+            test.add(bc);
+
+        }
+        widget.clear();
+    }
+
+    public void EndExam() {
+
+        Intent intent = new Intent(ExamActivity.this, ExamResultPage.class);
+        intent.putExtra("OBJECT", test);
+    }
     @Override
     protected void onDestroy() {
         widget.setOnTextChangedListener(null);
@@ -151,8 +187,8 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
     }
 
     public void onCheckButtonClick(View v) {
-        getEdit = mTextField.getText().toString(); // 텍스트 변수 저장 // 서버에 의해서 화면 전환 될 때마다 배열로 답안 저장
-        Toast.makeText(getApplicationContext(), getEdit, Toast.LENGTH_LONG).show();
+        SubmittedAnswer = mTextField.getText().toString(); // 텍스트 변수 저장 // 서버에 의해서 화면 전환 될 때마다 배열로 답안 저장
+        Toast.makeText(getApplicationContext(), SubmittedAnswer, Toast.LENGTH_LONG).show();
     }
 
     @Override
