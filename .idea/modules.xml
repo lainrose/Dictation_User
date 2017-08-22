@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Dictation_User.iml" filepath="$PROJECT_DIR$/Dictation_User.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyApplication15.iml" filepath="$PROJECT_DIR$/MyApplication15.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyScript_ATK-Core-android-component/MyScript_ATK-Core-android-component.iml" filepath="$PROJECT_DIR$/MyScript_ATK-Core-android-component/MyScript_ATK-Core-android-component.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyScript_ATK-IMCommon-android-component/MyScript_ATK-IMCommon-android-component.iml" filepath="$PROJECT_DIR$/MyScript_ATK-IMCommon-android-component/MyScript_ATK-IMCommon-android-component.iml" />
