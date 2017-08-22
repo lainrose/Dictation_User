@@ -35,15 +35,4 @@ public class Question implements Serializable {
     }
 
 
-    public String getanswer()
-    {
-        return SubmittedAnswer;
-    }
-
-
-    public void setanswer(String SubmittedAnswer)
-    {
-        this.SubmittedAnswer = SubmittedAnswer;
-    }
-
 }

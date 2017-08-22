@@ -1,9 +1,11 @@
 package com.cbnu.sweng.randombox.dictation_user.dictation_user.ui.main;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.IntegerRes;
+import android.content.IntentFilter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +26,9 @@ import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Grade;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Question;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.QuestionResult;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.Quiz;
+import com.cbnu.sweng.randombox.dictation_user.dictation_user.service.MyFirebaseMessagingService;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.cbnu.sweng.randombox.dictation_user.dictation_user.model.QuizResult;
 import com.myscript.atk.sltw.SingleLineWidget;
 import com.myscript.atk.sltw.SingleLineWidgetApi;
@@ -63,6 +68,8 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_exam);
+
+        registerReceiver(myReceiver, new IntentFilter(MyFirebaseMessagingService.QUIZ_CONTROL_INTENT));
 
         mTextField = (CustomEditText) findViewById(R.id.textField);
 
@@ -112,9 +119,6 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
         widget.setText(mTextField.getText().toString());
         isCorrectionMode = 0;
 
-
-
-
         ApiRequester apiRequester = new ApiRequester();
 
         try {
@@ -125,7 +129,6 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
                         for(Question ques : quiz.getQuestions()) {
                             String number = String.valueOf(ques.getNumber());
                             String question = ques.getSentence();
-
                         }
                     }
                 }
@@ -281,4 +284,29 @@ public class ExamActivity extends AppCompatActivity implements // 답안, 문제
             mTextField.setOnSelectionChangedListener(this);
         }
     }
+
+    private BroadcastReceiver myReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getExtras().getString("keyword").equals("next")) {
+                moveToNextQuestion();
+            }
+            else if (intent.getExtras().getString("keyword").equals("previous")) {
+                moveToPreviousQuestion();
+            }
+        }
+    };
+
+    //선생님으로부터 다음 문제 신호를 받았을 때 실행되는 메서드.
+    public void moveToNextQuestion() {
+//        Toast.makeText(getApplicationContext(), "다음문제로!!", Toast.LENGTH_LONG).show();
+    }
+
+    //선생님으로부터 이전 문제 신호를 받았을 때 실행되는 메서드.
+    public void moveToPreviousQuestion() {
+//        Toast.makeText(getApplicationContext(), "이전문제로!!", Toast.LENGTH_LONG).show();
+    }
+
+
+
 }
